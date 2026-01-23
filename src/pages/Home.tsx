@@ -1,7 +1,9 @@
+import Events from "../components/Events/Events";
+
 export default function Home() {
   return (
-    <div className="min-h-screen flex items-center justify-center text-3xl font-bold text-green-500">
-      Project OK!
+    <div className="">
+      <Events/>
     </div>
   );
 }
