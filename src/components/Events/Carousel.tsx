@@ -30,11 +30,16 @@ export default function Carousel({ slides }: Props) {
     <div className="w-full flex items-center gap-4 my-5">
       <button
         onClick={prev}
-        className="bg-[#4A3AFF] text-white rounded-full sm:w-3 sm:h-3 md:h-6 md:h-6 lg:w-10 lg:h-10 shrink-0 flex justify-center items-center"
+        className="bg-[#4A3AFF] text-white
+    rounded-full
+    aspect-square
+    w-3 sm:w-4 md:w-6 lg:w-10
+    flex items-center justify-center
+    shrink-0"
       >
         <FontAwesomeIcon
           icon={faAngleLeft}
-          className="sm:text-sm md:text-md lg:text-lg"
+          className="text-[10px] sm:text-xs md:text-sm lg:text-lg leading-none"
         />
       </button>
 
@@ -46,7 +51,7 @@ export default function Carousel({ slides }: Props) {
               ref={(el) => {
                 itemRefs.current[i] = el;
               }}
-              className="shrink-0 w-[70%] sm:w-[40%] lg:w-[30%]"
+              className="shrink-0 w-[70%] sm:w-[40%] lg:w-[30%] hover:shadow-2xl duration-300"
             >
               <div className="rounded-xl bg-white shadow overflow-hidden">
                 <img
@@ -63,11 +68,16 @@ export default function Carousel({ slides }: Props) {
 
       <button
         onClick={next}
-        className="bg-[#4A3AFF] text-white rounded-full sm:w-3 sm:h-3 md:h-6 md:h-6 lg:w-10 lg:h-10 shrink-0 flex justify-center items-center"
+        className="bg-[#4A3AFF] text-white
+    rounded-full
+    aspect-square
+    w-3 sm:w-4 md:w-6 lg:w-10
+    flex items-center justify-center
+    shrink-0"
       >
         <FontAwesomeIcon
           icon={faAngleRight}
-          className="sm:text-sm md:text-md lg:text-lg"
+          className="text-[10px] sm:text-xs md:text-sm lg:text-lg leading-none"
         />
       </button>
     </div>
