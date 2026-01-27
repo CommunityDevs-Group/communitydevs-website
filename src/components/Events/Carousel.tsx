@@ -44,16 +44,16 @@ export default function Carousel({ slides }: Props) {
       </button>
 
       <div className="w-full overflow-x-auto scroll-smooth no-scrollbar">
-        <div className="flex gap-5">
+        <div className="flex gap-10 p-2">
           {slides.map((slide, i) => (
             <div
               key={slide.id}
               ref={(el) => {
                 itemRefs.current[i] = el;
               }}
-              className="shrink-0 w-[70%] sm:w-[40%] lg:w-[30%] hover:shadow-2xl duration-300"
+              className="shrink-0 w-[68%] sm:w-[38%] lg:w-[28%] hover:shadow-2xl hover:scale-[1.02] duration-300"
             >
-              <div className="rounded-xl bg-white shadow overflow-hidden">
+              <div className="rounded-xl bg-white overflow-hidden">
                 <img
                   src={slide.url}
                   alt=""
