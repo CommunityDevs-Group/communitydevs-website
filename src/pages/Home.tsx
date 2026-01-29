@@ -1,7 +1,13 @@
+import About from "@/pages/About";
+import Events from "@/components/Events/Events";
+import Team from "@/components/sections/team/Team";
+
 export default function Home() {
   return (
-    <div className="min-h-screen flex items-center justify-center text-3xl font-bold text-green-500">
-      Project OK!
-    </div>
+    <>
+      <About />
+      <Events />
+      <Team />
+    </>
   );
 }
