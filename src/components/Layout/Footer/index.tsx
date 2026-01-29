@@ -10,7 +10,7 @@ import Vector3 from "../../../assets/images/Vector (2).png";
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-b font-Inter from-[#6868f4] to-[#4a3aff] text-white 
-  grid grid-cols-1 md:grid-cols-5 gap-8 p-8 rounded-b-[50px] mt-[54px] pb-[70px] 
+  grid grid-cols-1 md:grid-cols-5 gap-8 p-8 mt-[54px] pb-[70px] 
   px-6 md:px-[84px]">
   
   {/* 1. Sütun: Mobildə tam en, masaüstündə 2 hissə */}
