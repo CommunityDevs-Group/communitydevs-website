@@ -1,4 +1,3 @@
-import React from "react";
 import logoImg from "../../../assets/images/Logo.png";
 import Icon1 from "../../../assets/images/Group 85.svg";
 import Icon2 from "../../../assets/images/Group 86.svg";
