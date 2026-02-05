@@ -80,10 +80,10 @@ const About: React.FC = () => {
             />
           </div>
           <div className='w-full lg:w-1/2 flex flex-col gap-4 lg:items-start'>
-            <p className='text-[22px] font-medium text-[#4E4B66] mb-6'>{t('about.who')}</p>
-            <p className='text-[18px] lg:text-[25px] font-normal text-[#4E4B66] leading-8 mb-8'>{t('about.p1')}</p>
-            <p className='text-[18px] lg:text-[25px] font-medium text-[#4E4B66] leading-8'>{t('about.p2')}</p>
-            <p className='text-[18px] lg:text-[25px] font-light text-[#6868F4] mt-5'>{t('about.p3')}</p>
+            <p className='text-[22px] font-medium text-[#4E4B66] mb-6 transition-all duration-300 hover:translate-x-2 cursor-default'>{t('about.who')}</p>
+            <p className='text-[18px] lg:text-[25px] font-normal text-[#4E4B66] leading-8 mb-8 transition-all duration-300 hover:translate-x-2 cursor-default'>{t('about.p1')}</p>
+            <p className='text-[18px] lg:text-[25px] font-medium text-[#4E4B66] leading-8 transition-all duration-300 hover:translate-x-2 cursor-default'>{t('about.p2')}</p>
+            <p className='text-[18px] lg:text-[25px] font-light text-[#6868F4] mt-5 transition-all duration-300 hover:translate-x-2 cursor-default'>{t('about.p3')}</p>
           </div>
         </div>
       </div>
