@@ -9,7 +9,7 @@ const About = () => {
                 <h1 className='text-[#170F49] text-[30px] md:text-[50px] text-center font-semibold mb-20 tracking-wide'>About Us</h1>
                 <div className='flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-20 xl:gap-[250px]  relative mt-7'>
                     <div className='w-full md:w-1/2 flex justify-center '>
-                       <img className='w-full max-w-[300px] sm:max-w-[400px] lg:max-w-[600px]  h-auto object-contain transition-all duration-500 hover:-translate-y-3 cursor-pointer drop-shadow-[0_0_35px_rgba(104,104,244,0.3)]' src={AboutPhoto} alt="" />
+                       <img className='w-full max-w-[300px] sm:max-w-[400px] lg:max-w-[510px]  h-auto object-contain transition-all duration-500 hover:-translate-y-3 cursor-pointer drop-shadow-[0_0_35px_rgba(104,104,244,0.3)]' src={AboutPhoto} alt="" />
 
                     </div>
                     <div className='w-full lg:w-1/2 flex flex-col gap-4 lg:text-left lg:items-start justify-center pt-1 animate-fadeInUp'>
