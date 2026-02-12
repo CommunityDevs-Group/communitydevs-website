@@ -1,134 +1,77 @@
-// import { useEffect, useRef, useState } from "react";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-
-// type Slide = { id: number; url: string };
-// type Props = { slides: Slide[] };
-
-// export default function Carousel({ slides }: Props) {
-//   const [index, setIndex] = useState(0);
-//   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-//   const goTo = (i: number) => {
-//     if (!slides.length) return;
-//     const next = (i + slides.length) % slides.length;
-//     setIndex(next);
-//   };
-
-//   const prev = () => goTo(index - 1);
-//   const next = () => goTo(index + 1);
-
-//   useEffect(() => {
-//     itemRefs.current[index]?.scrollIntoView({
-//       behavior: "smooth",
-//       inline: "center",
-//       block: "nearest",
-//     });
-//   }, [index]);
-
-//   return (
-//     <div className="w-full flex items-center gap-4 my-5">
-//       <button
-//         onClick={prev}
-//         className="bg-[#4A3AFF] text-white
-//                      rounded-full
-//                      aspect-square
-//                      w-3 sm:w-4 md:w-6 lg:w-10
-//                      flex items-center justify-center
-//                      shrink-0"
-//       >
-//         <FontAwesomeIcon
-//           icon={faAngleLeft}
-//           className="text-[10px] sm:text-xs md:text-sm lg:text-lg leading-none"
-//         />
-//       </button>
-
-//       <div className="w-full overflow-x-auto scroll-smooth no-scrollbar">
-//         <div className="flex gap-10 p-2">
-//           {slides.map((slide, i) => (
-//             <div
-//               key={slide.id}
-//               ref={(el) => {
-//                 itemRefs.current[i] = el;
-//               }}
-//               className="shrink-0 w-[68%] sm:w-[38%] lg:w-[28%] hover:shadow-2xl hover:scale-[1.02] duration-300"
-//             >
-//               <div className="rounded-xl bg-white overflow-hidden">
-//                 <img
-//                   src={slide.url}
-//                   alt=""
-//                   className="h-auto w-full object-cover"
-//                   draggable={false}
-//                 />
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-
-//       <button
-//         onClick={next}
-//         className="bg-[#4A3AFF] text-white
-//     rounded-full
-//     aspect-square
-//     w-3 sm:w-4 md:w-6 lg:w-10
-//     flex items-center justify-center
-//     shrink-0"
-//       >
-//         <FontAwesomeIcon
-//           icon={faAngleRight}
-//           className="text-[10px] sm:text-xs md:text-sm lg:text-lg leading-none"
-//         />
-//       </button>
-//     </div>
-//   );
-// }
-import { useEffect, useRef, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { motion } from "framer-motion";
 
 type Slide = { id: number; url: string };
 type Props = { slides: Slide[] };
 
 export default function Carousel({ slides }: Props) {
-  const { t } = useTranslation();
   const [index, setIndex] = useState(0);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const goTo = (i: number) => {
-    const next = (i + slides.length) % slides.length;
-    setIndex(next);
+  const scrollToItem = (nextIndex: number) => {
+    setIndex(nextIndex);
+    itemRefs.current[nextIndex]?.scrollIntoView({
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest",
+    });
   };
 
-  useEffect(() => {
-    itemRefs.current[index]?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
-  }, [index]);
+  const next = () => {
+    const nextIndex = (index + 1) % slides.length;
+    scrollToItem(nextIndex);
+  };
+
+  const prev = () => {
+    const prevIndex = (index - 1 + slides.length) % slides.length;
+    scrollToItem(prevIndex);
+  };
 
   return (
-    <section id="events" className="scroll-mt-20 w-full py-10 px-4">
-      <div className="text-center mb-10">
-        <h2 className="text-4xl md:text-6xl font-bold text-[#170F49]">{t('nav.events')}</h2>
-      </div>
-      <div className="w-full flex items-center gap-4">
-        <button onClick={() => goTo(index - 1)} className="bg-[#4A3AFF] text-white rounded-full w-10 h-10 flex items-center justify-center shrink-0">
-          <FontAwesomeIcon icon={faAngleLeft} />
-        </button>
-        <div className="w-full overflow-x-auto no-scrollbar">
-          <div className="flex gap-10 p-2">
-            {slides.map((slide, i) => (
-              <div key={slide.id} ref={(el) => { itemRefs.current[i] = el; }} className="shrink-0 w-[68%] sm:w-[38%] lg:w-[28%] hover:scale-[1.02] duration-300">
-                <div className="rounded-xl bg-white overflow-hidden shadow-lg">
-                  <img src={slide.url} alt="" className="h-auto w-full object-cover" />
-                </div>
+    <div className="w-full flex items-center gap-4 my-2">
+      <button
+        onClick={prev}
+        className="bg-[#4A3AFF] text-white rounded-full aspect-square w-8 md:w-10 flex items-center justify-center shrink-0 hover:bg-[#392ccc] transition-all active:scale-90 shadow-md"
+      >
+        <FontAwesomeIcon icon={faAngleLeft} className="text-sm lg:text-lg" />
+      </button>
+
+      <div className="w-full overflow-x-auto no-scrollbar scroll-smooth">
+        <div className="flex gap-4 md:gap-5 p-4">
+          {slides.map((slide, i) => (
+            <motion.div
+              key={slide.id}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.05 }}
+              ref={(el) => {
+                itemRefs.current[i] = el;
+              }}
+              
+              className="shrink-0 w-[65%] sm:w-[35%] lg:w-[22%] group"
+            >
+              <div className="rounded-xl bg-white overflow-hidden shadow-sm group-hover:shadow-lg transition-all duration-500 group-hover:-translate-y-2 border border-gray-100">
+                <img
+                  src={slide.url}
+                  alt="Event Slide"
+                  className="h-40 md:h-48 w-full object-cover"
+                  draggable={false}
+                />
               </div>
-            ))}
-          </div>
+            </motion.div>
+          ))}
         </div>
-        <button onClick={() => goTo(index + 1)} className="bg-[#4A3AFF] text-white rounded-full w-10 h-10 flex items-center justify-center shrink-0">
-          <FontAwesomeIcon icon={faAngleRight} />
-        </button>
       </div>
-    </section>
+
+      <button
+        onClick={next}
+        className="bg-[#4A3AFF] text-white rounded-full aspect-square w-8 md:w-10 flex items-center justify-center shrink-0 hover:bg-[#392ccc] transition-all active:scale-90 shadow-md"
+      >
+        <FontAwesomeIcon icon={faAngleRight} className="text-sm lg:text-lg" />
+      </button>
+    </div>
   );
 }

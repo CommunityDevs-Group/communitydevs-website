@@ -28,46 +28,57 @@ export default function TeamCard({
       className="
         bg-white
         rounded-2xl
-        shadow-[0px_20px_50px_rgba(79,70,229,0.08)]
-        p-10
+        shadow-sm
+        p-6
         text-center
         transition-all
-        duration-300
-        hover:-translate-y-3
-        hover:shadow-[0px_30px_60px_rgba(79,70,229,0.12)]
+        duration-500
+        hover:-translate-y-2
+        hover:shadow-xl
+        group
+        h-full
+        flex
+        flex-col
+        justify-between
+        border
+        border-gray-50
       "
     >
-      {/* Avatar */}
-      <img
-        src={image}
-        alt={name}
-        className="w-28 h-28 mx-auto rounded-full object-cover mb-6"
-      />
+      <div>
+    
+        <div className="relative w-24 h-24 mx-auto mb-5">
+           <div className="absolute inset-0 bg-indigo-100 rounded-full scale-110 opacity-0 group-hover:opacity-100 transition-all duration-500" />
+           <img
+            src={image}
+            alt={name}
+            className="relative w-full h-full rounded-full object-cover shadow-inner"
+          />
+        </div>
 
-      {/* Name */}
-      <h3 className="text-xl font-semibold text-[#1C1B4B]">{name}</h3>
+        
+        <h3 className="text-lg font-bold text-[#1C1B4B] group-hover:text-[#6360F6] transition-colors">
+          {name}
+        </h3>
 
-      {/* Role */}
-      <p className="font-dm-sans text-[15px] font-medium text-[#6360F6] mt-2">
-        {role}
-      </p>
+        <p className="font-dm-sans text-[13px] font-bold text-[#6360F6] uppercase tracking-wider mt-1">
+          {role}
+        </p>
 
-      {/* Description */}
-      <p className="font-dm-sans text-[16px] text-[#6F6C90] mt-4 leading-[28px]">
-        {description}
-      </p>
+        <p className="font-dm-sans text-[14px] text-[#6F6C90] mt-4 leading-relaxed line-clamp-3">
+          {description}
+        </p>
+      </div>
 
-      {/* Social Icons */}
       {socials && (
-        <div className="flex justify-center gap-5 mt-8 text-[#B7B5C8]">
+        <div className="flex justify-center gap-4 mt-6 pt-4 border-t border-gray-50 text-[#B7B5C8]">
           {socials.instagram && (
             <a
               href={socials.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#6360F6] transition"
+              className="hover:text-[#E1306C] transition-all hover:scale-125"
             >
-              <FaInstagram size={18} />
+              <FaInstagram size={16} />
             </a>
           )}
 
@@ -75,10 +86,10 @@ export default function TeamCard({
             <a
               href={socials.behance}
               target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-[#6360F6] transition"
+              rel="noopener {/* Social Icons */}noreferrer"
+              className="hover:text-[#053eff] transition-all hover:scale-125"
             >
-              <FaBehance size={18} />
+              <FaBehance size={16} />
             </a>
           )}
 
@@ -87,9 +98,9 @@ export default function TeamCard({
               href={socials.portfolio}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#6360F6] transition"
+              className="hover:text-[#4A3AFF] transition-all hover:scale-125"
             >
-              <FaGlobe size={18} />
+              <FaGlobe size={16} />
             </a>
           )}
 
@@ -98,9 +109,9 @@ export default function TeamCard({
               href={socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#6360F6] transition"
+              className="hover:text-[#0077b5] transition-all hover:scale-125"
             >
-              <FaLinkedinIn size={18} />
+              <FaLinkedinIn size={16} />
             </a>
           )}
 
@@ -109,9 +120,9 @@ export default function TeamCard({
               href={socials.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#6360F6] transition"
+              className="hover:text-[#333] transition-all hover:scale-125"
             >
-              <FaGithub size={18} />
+              <FaGithub size={16} />
             </a>
           )}
         </div>

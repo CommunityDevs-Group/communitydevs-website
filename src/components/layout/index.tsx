@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import Navbar from "./Navbar"; 
-import Footer from "./Footer";
+import Footer from "./Footer/index"; 
 import Hero from "../sections/team/Hero";
 
 interface LayoutProps {
@@ -9,10 +9,10 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <Navbar />
       <Hero />
-      <main>{children}</main>
+      <main className="flex-grow">{children}</main>
       <Footer />
     </div>
   );
