@@ -86,7 +86,7 @@ export default function TeamCard({
             <a
               href={socials.behance}
               target="_blank"
-              rel="noopener {/* Social Icons */}noreferrer"
+              rel="noopener noreferrer"
               className="hover:text-[#053eff] transition-all hover:scale-125"
             >
               <FaBehance size={16} />

@@ -7,7 +7,6 @@ import fironiImg from "@/assets/images/team/2.png";
 import ugurImg from "@/assets/images/team/3.png";
 import nasraddinImg from "@/assets/images/team/4.jpg";
 import saidImg from "@/assets/images/team/5.jpg";
-import adilImg from "@/assets/images/team/6.jpg";
 import canerImg from "@/assets/images/team/7.jpg";
 import nihatImg from "@/assets/images/team/8.jpg";
 import eminImg from "@/assets/images/team/9.jpg";
@@ -59,18 +58,6 @@ export default function Team() {
       },
     },
     {
-      name: "Adil Abtalibov",
-      role: t('team.roles.frontend'),
-      description: t('team.descriptions.adil'),
-      image: adilImg,
-      socials: {
-        instagram: "https://www.instagram.com/abtalib0v",
-        behance: "https://www.behance.net/adilabtalibov",
-        linkedin: "https://www.linkedin.com/in/adil-abtalibov",
-        github: "https://github.com/Abtalib0v",
-      },
-    },
-    {
       name: "Caner Shanli",
       role: t('team.roles.design_lead'),
       description: t('team.descriptions.caner'),
@@ -105,7 +92,7 @@ export default function Team() {
     },
     {
       name: "Emin Seyidov",
-      role: t('team.roles.motion'),
+      role: t('team.roles.graphic'),
       description: t('team.descriptions.emin'),
       image: eminImg,
       socials: {
